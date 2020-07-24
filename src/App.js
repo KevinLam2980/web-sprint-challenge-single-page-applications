@@ -29,8 +29,6 @@ const [formValues, setFormValues] = useState(initialFormValues)
 const [formErrors, setFormErrors] = useState(initialFormErrors) // object
 const [disabled, setDisabled] = useState(initialDisabled) 
 
-
-
 const postNewPizza = newPizza => {
   axios.post('https://reqres.in/api/users', newPizza)
     .then(res => {
@@ -87,20 +85,18 @@ const submit = () => {
 }
 
 useEffect(() => {
-  // 🔥 STEP 10- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES
   formSchema.isValid(formValues).then(valid => {
     setDisabled(!valid)
   })
 }, [formValues])
 
-  
   return (
     <>
       <nav>
       <h1>Lambda Eats</h1>
         <div>
           <Link to='/'>
-          <button>Home</button>
+          <button id='homeBtn'>Home</button>
           </Link>
           <button>Help</button>
         </div>
@@ -120,7 +116,7 @@ useEffect(() => {
       <Route path='/'>
         <img src={require('./Assets/Pizza.jpg')} ></img>
         <Link to='/pizza'>
-        <button>Pizza?</button>
+        <button id='pizzaForm'>Pizza?</button>
         </Link>
       </Route>
       </Switch>

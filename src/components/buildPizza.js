@@ -29,9 +29,9 @@ const Pizza = (props) => {
     return (
         <div>     
             <div className='errors'>
-                <div>{errors.name}</div>
+                <div id='nameError'>{errors.name}</div>
             </div>
-\
+
             <h2>Build Your Own Pizza</h2>
             <form onSubmit={onSubmit}>
                 <div>
@@ -154,7 +154,7 @@ const Pizza = (props) => {
                 </label>
                 </div>
 
-                <button disabled={disabled}>submit</button>
+                <button disabled={disabled} id='submitBtn'>submit</button>
             </form>
         </div>
     )
