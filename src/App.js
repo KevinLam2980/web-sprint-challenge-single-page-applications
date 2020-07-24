@@ -23,7 +23,6 @@ const initialFormErrors = {
 }
 const initialDisabled = true
 
-
 const App = () => {
 const [pizza, setPizza] = useState([])
 const [formValues, setFormValues] = useState(initialFormValues)
@@ -82,13 +81,10 @@ const submit = () => {
     size: formValues.size.trim(),
     sauce: formValues.sauce.trim(),
     toppings: Object.keys(formValues.toppings).filter(t => formValues.toppings[t]),
+    special: formValues.special.trim(),
   }
   postNewPizza(newPizza)
 }
-
-// useEffect(() => {
-//   getPizzas()
-// }, [])
 
 useEffect(() => {
   // 🔥 STEP 10- ADJUST THE STATUS OF `disabled` EVERY TIME `formValues` CHANGES

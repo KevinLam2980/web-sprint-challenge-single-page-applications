@@ -34,7 +34,8 @@ const Pizza = (props) => {
 \
             <h2>Build Your Own Pizza</h2>
             <form onSubmit={onSubmit}>
-                <label>
+                <div>
+                <label>Name:
                     <input
                     type='text'
                     value={values.name}
@@ -44,7 +45,9 @@ const Pizza = (props) => {
                     >
                     </input>
                 </label>
+                </div>
 
+                <div>
                 <label htmlFor="size">Choice of Size:
                     <select
                     onChange={onInputChange}
@@ -56,8 +59,10 @@ const Pizza = (props) => {
                         <option value='large'>Large</option>
                     </select>
                 </label>
+                </div>
 
-                <p>Choice of sauce</p>
+                <div>
+                <h3>Select Sauce</h3>
                 <label htmlFor="sauce">Original Red
                    <input
                    type="radio"
@@ -94,9 +99,11 @@ const Pizza = (props) => {
                    onChange={onInputChange}>
                    </input>
                 </label>
+                </div>
+    
 
-
-
+                <div>
+                    <h3>Add toppings</h3>
                 <label>pepperoni
                     <input
                     type="checkbox"
@@ -132,18 +139,20 @@ const Pizza = (props) => {
                     onChange={onCheckboxChange}
                 />
                 </label>
+                </div>
 
-
-                <label>
-                    <textarea
+                <div>
+                <label>Any special requests?
+                    <input
                     type='text'
                     placeholder="Anything else you'd like to add?"
                     name='special'
                     onChange={onInputChange}
                     value={values.special}>
                         
-                    </textarea>
+                    </input>
                 </label>
+                </div>
 
                 <button disabled={disabled}>submit</button>
             </form>
