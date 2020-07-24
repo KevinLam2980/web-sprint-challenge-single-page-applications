@@ -4,6 +4,42 @@ import Pizza from './components/buildPizza'
 import axios from 'axios'
 import * as yup from 'yup'
 import formSchema from './validation/formSchema'
+import Styled from 'styled-components'
+
+const Nav = Styled.nav`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+height: 100px;
+align-items:center;
+background-color: red;
+color: black;
+h1{
+  padding-left: 3rem;
+}
+div{
+  padding-right: 3rem;
+  button{
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1rem;
+  }
+}
+`
+const IMG = Styled.img`
+width: 100%;
+`
+const BtnDiv = Styled.div`
+display: flex;
+justify-content: center;
+text-decoration: none;
+`
+const PizzaBTN = Styled.button`
+padding: 1rem 2rem;
+background-color: green;
+font-size: 1.5rem;
+border: none;
+`
 
 
 const initialFormValues = {
@@ -37,6 +73,7 @@ const postNewPizza = newPizza => {
       console.log(res.data)
     })
     .catch(err => {
+      console.log(err)
       debugger
     })
 }
@@ -59,7 +96,7 @@ const inputChange = (name, value) => {
     })
   setFormValues({
     ...formValues,
-    [name]: value // NOT AN ARRAY
+    [name]: value 
   })
 }
 
@@ -68,7 +105,7 @@ const checkboxChange = (name, isChecked) => {
     ...formValues,
     toppings: {
       ...formValues.toppings,
-      [name]: isChecked, // not an array
+      [name]: isChecked, 
     }
   })
 }
@@ -92,7 +129,7 @@ useEffect(() => {
 
   return (
     <>
-      <nav>
+      <Nav>
       <h1>Lambda Eats</h1>
         <div>
           <Link to='/'>
@@ -100,7 +137,7 @@ useEffect(() => {
           </Link>
           <button>Help</button>
         </div>
-      </nav>
+      </Nav>
       <Switch>
       <Route path='/pizza'>
         <Pizza 
@@ -114,9 +151,11 @@ useEffect(() => {
       </Route>
 
       <Route path='/'>
-        <img src={require('./Assets/Pizza.jpg')} ></img>
+        <IMG src={require('./Assets/Pizza.jpg')} ></IMG>
         <Link to='/pizza'>
-        <button id='pizzaForm'>Pizza?</button>
+          <BtnDiv>
+        <PizzaBTN id='pizzaForm'>Pizza?</PizzaBTN>
+          </BtnDiv>
         </Link>
       </Route>
       </Switch>

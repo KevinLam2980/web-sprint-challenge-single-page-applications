@@ -1,4 +1,20 @@
 import React from 'react'
+import Styled from 'styled-components'
+
+const Div = Styled.div`
+width: 60%;
+margin: 0 auto;
+text-align: center;
+border: 3px solid green;
+padding: 0 0 2rem;
+
+#nameError{
+    color:red;
+    padding: 0;
+    margin: 1rem;
+}
+`
+
 
 
 const Pizza = (props) => {
@@ -27,19 +43,19 @@ const Pizza = (props) => {
       }
 
     return (
-        <div>     
+        <Div>     
+
+            <h2>Build Your Own Pizza</h2>
             <div className='errors'>
                 <div id='nameError'>{errors.name}</div>
             </div>
-
-            <h2>Build Your Own Pizza</h2>
             <form onSubmit={onSubmit}>
                 <div>
                 <label>Name:
                     <input
                     type='text'
                     value={values.name}
-                    placeholder='Enter name'
+                    placeholder='Enter your name'
                     name='name'
                     onChange={onInputChange}
                     >
@@ -101,62 +117,59 @@ const Pizza = (props) => {
                 </label>
                 </div>
     
-
                 <div>
                     <h3>Add toppings</h3>
-                <label>pepperoni
+                <label>
                     <input
                     type="checkbox"
                     name='pepperoni'
                     checked={values.toppings.pepperoni === true}
                     onChange={onCheckboxChange}
-                    />
+                    />pepperoni
                 </label>
-
-                <label>ham
+                <br></br>
+                <label>
                 <input
                     type="checkbox"
                     name='ham'
                     checked={values.toppings.ham === true}
                     onChange={onCheckboxChange}
-                />
+                />ham
                 </label>
-
-                <label>bacon
+                <br></br>
+                <label>
                 <input
                     type="checkbox"
                     name='bacon'
                     checked={values.toppings.bacon === true}
                     onChange={onCheckboxChange}
-                />
+                />bacon
                 </label>
-
-                <label>pineapple
+                <br></br>
+                <label>
                 <input
                     type="checkbox"
                     name='pineapple'
                     checked={values.toppings.pineapple === true}
                     onChange={onCheckboxChange}
-                />
+                />pineapple
                 </label>
                 </div>
-
                 <div>
-                <label>Any special requests?
+                <label>Any special requests?<br></br>
                     <input
                     type='text'
                     placeholder="Anything else you'd like to add?"
                     name='special'
                     onChange={onInputChange}
                     value={values.special}>
-                        
                     </input>
                 </label>
                 </div>
 
-                <button disabled={disabled} id='submitBtn'>submit</button>
+                <button disabled={disabled} id='submitBtn'>Add to Order</button>
             </form>
-        </div>
+        </Div>
     )
 }
 
